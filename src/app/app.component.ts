@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginServiceService } from './shared/services/login-service.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'miPractica';
+  login = {
+    usuario: null,
+    contrasena: null
+  }
+
+  constructor (private loginService: LoginServiceService) { }
+
+  loginUsuario() {
+    this.loginService.loginUsuario(this.login).subscribe (
+      datos => {
+        if(datos["resultado"] == "OK"){
+          alert(datos["mensaje"]);
+        }else{
+          alert(datos["mensaje"]);
+        }
+      }
+    );
+  }
 }
