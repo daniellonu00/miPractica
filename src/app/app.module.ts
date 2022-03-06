@@ -2,24 +2,24 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
-import { DashboardComponent } from './views/dashboard/dashboard.component';
-import {FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { LibreriaComponent } from './views/libreria/libreria.component';
 
 
 @NgModule({
   declarations: [
-    HomeComponent,
+    AppComponent,
     LoginComponent,
-    DashboardComponent
+    LibreriaComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
