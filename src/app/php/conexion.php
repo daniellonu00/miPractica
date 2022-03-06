@@ -1,16 +1,15 @@
 <?php
-/* Conectar a la BD y luego ya actuo siempre sobre la variable conexion*/
-function conexion() {
-    $conexion = mysqli_connect("localhost", "root", "", "libreria_online");
-    
-    return $conexion;
-  }
+header("Access-Control-Allow-Origin: *");
+header('Access-Control-Allow-Credentials: true');
+header("Access-Control-Allow-Methods: PUT, GET, POST, DELETE");
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+header("Content-Type: application/json; charset=UTF-8");
+$db_host = 'localhost';
+$db_username = 'root';
+$db_password = '';
+$db_name = 'libreria_online';
+$mysqli = new mysqli($db_host, $db_username, $db_password,$db_name);
 
-/* Para seleccionar la bd*/
-mysqli_select_db($conexion, "libreria_online") or die("No se puede seleccionar la BD");
-
-/* para detectar errores*/
-if (mysqli_connect_errno()) {
-    printf("<p>Conexión fallida: %s</p>", mysqli_connect_error());
-    exit();
+if ($mysqli->connect_error) {
+die('Error : ('. $mysqli->connect_errno .') '. $mysqli->connect_error);
 }
