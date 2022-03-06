@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { Usuario } from './shared/clases/usuario';
+
 
 @Component({
   selector: 'app-root',
@@ -6,9 +8,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit{
+  public usuarios: Usuario[];
 
+  constructor() {
+    this.usuarios = [
+      {
+        nombre: 'admin',
+        contrasegna: 'admin'
+      },
+      {
+        nombre: 'user',
+        contrasegna: 'user'
+      }
+    ];
 
-  constructor() { }
+  }
+  ngOnInit(): void {
+    localStorage.setItem('usuarios', JSON.stringify(this.usuarios));
+  }
 
 }

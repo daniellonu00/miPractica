@@ -1,9 +1,9 @@
 <div id="contenedor" class="form">
-  <form (ngSubmit)="submit()" #usuarioForm="ngForm">
+  <form (ngSubmit)="submit()" #usuarioForm="ngForm" [formGroup]="profileForm">
     <div class="form-group">
       <label for="usuario">Nombre:</label>
       <input type="text" [(ngModel)]="usuario.nombre"
-        name="nombre" #nombre="ngModel" required>
+        name="nombre"  #nombre="ngModel"  required >
       <div *ngIf="nombre.invalid && nombre.dirty" class="alert">
         <div *ngIf="nombre.errors?.['required']">Campo requerido</div>
       </div>

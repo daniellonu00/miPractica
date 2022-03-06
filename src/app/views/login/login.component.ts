@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { Usuario } from 'src/app/shared/clases/usuario';
@@ -11,7 +12,13 @@ import { LoginService } from 'src/app/shared/services/login.service';
 })
 export class LoginComponent implements OnInit {
   // Atributos
-  public usuario: Usuario
+  public usuario: Usuario;
+
+  //FormGroup para recogida de formulario
+  profileForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+  });
 
   constructor(
     private loginService: LoginService,
